@@ -3,11 +3,12 @@
   de la page.
 */
 
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import './globals.css';
+import React from 'react';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 /*
   Par défaut, les composants Next sont rendus côté serveur
@@ -17,7 +18,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Pokédex',
   description: 'Mon super Pokédex fabriqué avec NextJS',
-}
+};
 
 export default function RootLayout({
   children,
@@ -34,8 +35,8 @@ export default function RootLayout({
           (équivalent de `<Outlet />` de React Router)
         */}
         {children}
-        <footer>© 2023 – O&apos;clock Arancini </footer>  
+        <footer>© 2023 – O&apos;clock Arancini </footer>
       </body>
     </html>
-  )
+  );
 }
