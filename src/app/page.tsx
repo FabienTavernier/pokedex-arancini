@@ -6,6 +6,7 @@
 */
 
 import { Pokemon } from '@/@types/pokemon';
+import PokemonCard from '@/components/PokemonCard';
 
 /*
   Pour aller chercher les données depuis l'API,
@@ -29,7 +30,7 @@ export default async function Home() {
   const pokemons: Pokemon[] = await fetchPokemons();
   // Attention, on est en SSR (par défaut) donc côté serveur,
   // les `console.log()` s'affichent côté serveur, donc dans le terminal
-  console.log(pokemons);
+  // console.log(pokemons);
 
   // je les affiche (côté serveur)
   return (
@@ -47,9 +48,17 @@ export default async function Home() {
       */}
       <h1 className="font-bold text-cyan-400 text-4xl p-12">Pokédex</h1>
 
-      {pokemons.map((pokemon) => (
-        <p key={pokemon.pokedexId}>{pokemon.name.fr}</p>
-      ))}
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-2 p-2">
+        {pokemons.map((pokemon) => (
+          <a
+            key={pokemon.pokedexId}
+            href={`/pokemon/${pokemon.name.fr.toLowerCase()}`}
+            className="flex"
+          >
+            <PokemonCard pokemon={pokemon} />
+          </a>
+        ))}
+      </div>
     </main>
   );
 }

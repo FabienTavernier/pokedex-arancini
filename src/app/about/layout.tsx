@@ -12,15 +12,13 @@ import type { Metadata } from 'next';
 */
 export const metadata: Metadata = {
   title: 'About us | Pokédex',
-  description: 'Nous c\'est la promo Arancini !',
+  description: "Nous c'est la promo Arancini !",
 };
 
 export default function AboutLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  return (
-    <div className="about-layout">{children}</div>
-  );
+  return <div className="about-layout">{children}</div>;
 }
