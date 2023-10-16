@@ -5,7 +5,33 @@
   ou plus proche ancêtre)
 */
 
-export default function Home() {
+import { Pokemon } from '@/@types/pokemon';
+
+/*
+  Pour aller chercher les données depuis l'API,
+  je peux le faire côté serveur.
+
+  Je crée ma fonction de fetch (axios) qui retourne les résultats
+*/
+async function fetchPokemons() {
+  const res = await fetch('https://api-pokemon-fr.vercel.app/api/v1/pokemon');
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data');
+  }
+
+  return res.json();
+}
+
+/* J'indique mon composant comme asynchrone */
+export default async function Home() {
+  // je récupère les données
+  const pokemons: Pokemon[] = await fetchPokemons();
+  // Attention, on est en SSR (par défaut) donc côté serveur,
+  // les `console.log()` s'affichent côté serveur, donc dans le terminal
+  console.log(pokemons);
+
+  // je les affiche (côté serveur)
   return (
     <main className="grow">
       {/*
@@ -20,6 +46,10 @@ export default function Home() {
         on a le nombre de pixels souhaité, on le divise par 4
       */}
       <h1 className="font-bold text-cyan-400 text-4xl p-12">Pokédex</h1>
+
+      {pokemons.map((pokemon) => (
+        <p key={pokemon.pokedexId}>{pokemon.name.fr}</p>
+      ))}
     </main>
   );
 }
