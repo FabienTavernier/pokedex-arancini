@@ -32,6 +32,8 @@ export default async function Home() {
   // les `console.log()` s'affichent côté serveur, donc dans le terminal
   // console.log(pokemons);
 
+  const filteredPokemons = pokemons.slice(0, 20);
+
   // je les affiche (côté serveur)
   return (
     <main className="grow">
@@ -49,7 +51,7 @@ export default async function Home() {
       <h1 className="font-bold text-cyan-400 text-4xl p-12">Pokédex</h1>
 
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-2 p-2">
-        {pokemons.map((pokemon) => (
+        {filteredPokemons.map((pokemon) => (
           <a
             key={pokemon.pokedexId}
             href={`/pokemon/${pokemon.name.fr.toLowerCase()}`}
