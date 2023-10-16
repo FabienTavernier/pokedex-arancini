@@ -8,6 +8,7 @@
 */
 
 import { Pokemon } from '@/@types/pokemon';
+import Link from 'next/link';
 
 interface SingleProps {
   params: {
@@ -35,6 +36,8 @@ export default async function Single({ params }: SingleProps) {
       <h1 className="font-bold text-cyan-400 text-4xl p-12">
         {pokemon.name.fr}
       </h1>
+
+      <Link href="/">← Accueil</Link>
 
       <img
         src={pokemon.sprites.shiny || pokemon.sprites.regular}
