@@ -1,3 +1,10 @@
+/*
+  Le page.tsx est le fichier qui décrit le contenu de la page.
+  En fonction de l'URL, il sera envoyé en tant que `children`
+  du layout.tsx le plus proche (au même niveau d'arborescence
+  ou plus proche ancêtre)
+*/
+
 import Image from 'next/image'
 
 export default function Home() {
