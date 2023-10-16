@@ -27,7 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className={inter.className}>
+      <body
+        className={`bg-cyan-950 flex flex-col min-h-screen text-white ${inter.className}`}
+      >
         {/*
           Le contenu de la page sera automatiquement donné via `children`
           au layout en fonction de l’arborescence de l'application.
@@ -35,7 +37,9 @@ export default function RootLayout({
           (équivalent de `<Outlet />` de React Router)
         */}
         {children}
-        <footer>© 2023 – O&apos;clock Arancini </footer>
+        <footer className="text-center text-cyan-50/50 py-2">
+          © 2023 – O&apos;clock Arancini
+        </footer>
       </body>
     </html>
   );
