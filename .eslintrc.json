@@ -1,7 +1,12 @@
 {
   "extends": [
     "airbnb",
-    "next/core-web-vitals"
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended" // must be the last one
   ],
   "parser": "@typescript-eslint/parser",
   "overrides": [
@@ -12,6 +17,7 @@
       }
     }
   ],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "@next/next/no-img-element": "off",
